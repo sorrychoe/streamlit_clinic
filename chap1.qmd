@@ -1,0 +1,426 @@
+---
+title: "Streamlit"
+format: revealjs
+editor: visual
+
+execute:
+  echo: True
+  eval : False
+---
+
+## LM 클리닉 내용
+
+::: incremental
+-   Dashboard 생태계의 이해
+-   Why Streamlit?
+-   Streamlit 사전 설정
+-   Streamlit 사용 방법
+-   Streamlit 주요 함수
+-   Streamlit 실습
+:::
+
+## Dashboard 생태계의 이해
+
+<br/>
+
+::: {.fragment .fade-in-then-semi-out}
+**Q. Dashboard Library란?**
+:::
+
+<br/>
+
+::: {.fragment .fade-in}
+A. 말 그대로 대시보드로 만들 수 있는 기능이 포함된 라이브러리
+:::
+
+## Why are we use Dashboard?
+
+<br/>
+
+::: {.fragment .fade-in}
+- 실무에서는 자신들이 분석한 결과 or 모델을 비개발 직종에게 설명해야 할 경우가 많음
+
+ex) 데이터 분석 --> 경영인, 엔지니어 --> 디자이너
+:::
+
+::: {.fragment .fade-in}
+- 데이터 직종은 결국 자신들의 도출해낸 성과물을 다른 이에게도 설득하여야 한다.
+:::
+
+::: {.fragment .fade-up}
+--\> 그렇기에 **대시보드를 제작하는 것은 매우 중요한 Communication Skill!**
+:::
+
+## Dashboard의 주요 요소
+
+<br/>
+
+::: {.fragment .fade-in-then-semi-out}
+-   Analysis
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+-   Visualization
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+-   Interaction
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+-   Serving
+:::
+
+## 현재 Dashboard 생태계 상황
+
+![](images/dashboard.png)
+
+## Dashboard Tool 종류
+
+<br/>
+
+::: incremental
+1.  shiny
+2.  Dash
+3.  Jupyter
+4.  Panel
+5.  Voila
+6.  Flask
+7.  Streamlit
+:::
+
+## Dashboard Tool 종류
+
+<br/>
+
+1.  shiny --\> for **R**
+2.  Dash --\> for **Python** + R, Julia
+3.  Jupyter --\> for **Python** + R, Julia
+4.  Panel --\> for **Python**
+5.  Voila --\> for **Python** + R, Julia
+6.  Flask --\> for **Python**
+7.  Streamlit --\> for **Python**
+
+## Dashboard Tool 별 특징 비교 1
+
+<br/>
+
+![](images/comparison.png)
+
+## Dashboard Tool 별 특징 비교 2
+
+![](images/comparison2.png)
+
+## Why Streamlit?
+
+<br/>
+
+- R shiny 급으로 강력한 인터랙티브 시각화 기능
+
+- Flask와 Dash보다 적은 개발 리소스
+
+- 프론트엔드, 백엔드 개발 없이, 간단한 코드 몇줄 만으로도 웹페이지 제작 가능
+
+- streamlit과 Github 계정만으로도 실제 웹페이지로 사용 가능
+
+- 참고할 수 있는 예제 코드가 많음
+
+## Streamlit 설치
+
+streamlit은 **Terminal**에서 다음 명령어를 통해 실행할 수 있다
+
+::: {.fragment .fade-in}
+**for pip**
+
+```{bash}
+pip install streamlit
+```
+:::
+
+<br/>
+
+::: {.fragment .fade-in-then-semi-out}
+**for anaconda**
+
+```{bash}
+conda install streamlit
+```
+:::
+
+:::{.fragment .fade-in}
+위에 코드가 실행되지 않는 anaconda user는 아래 코드로!
+```{bash}
+conda install -c conda-forge streamlit
+```
+:::
+## Streamlit 설치
+
+::: {.fragment .fade-in-then-semi-out}
+streamlit이 잘 설치됐는지 확인하고 싶다면?
+:::
+
+<br/>
+
+::: {.fragment .fade-in}
+**Terminal에서 다음 명령어를 통해 실행해보자!**
+
+```{bash}
+streamlit hello
+```
+:::
+
+<br/>
+
+::: {.fragment .fade-in}
+아마 갑자기 이상한 창이 열릴 것이다!! 그렇다면 정상적으로 설치된 것이다!
+:::
+
+## Streamlit의 기초 : 사용 방법 1
+
+<br/>
+
+1. .py 파일을 제작한다.
+
+<br/>
+
+2. 열심히 코드를 짠다.
+
+<br/>
+
+3. 디버깅을 해준다(꼭꼭...!!).
+
+## Streamlit의 기초 : 사용 방법 2
+
+::: {.fragment .fade-up}
+streamlit에서 코드를 짤 때, 다음 **3가지**를 명심하자!
+:::
+
+::: {.fragment .fade-up}
+```{python}
+import streamlit as st 
+```
+:::
+
+<br/>
+
+::: {.fragment .fade-up}
+```{python}
+def main(): 
+  return 
+```
+:::
+
+<br/>
+
+::: {.fragment .fade-up}
+```{python}
+if __name__ == '__main__': 
+    main()
+```
+:::
+
+## Streamlit의 기초 : 사용 방법 2
+
+``` {.py code-line-numbers="1|4-7|10-11"}
+import streamlit as st
+
+
+def main(): 
+  ....
+  
+  return ***
+  
+  
+if __name__ == '__main__': 
+    main()
+```
+
+## Streamlit의 기초 : 사용 방법 3
+
+<br/>
+
+열심히 다 만든 뒤에는 어떻게 실행하나요?
+
+::: {.fragment .fade-in-then-semi-out}
+1. Terminal에 들어간다.
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+2. 내가 만든 파일 위치로 이동시킨다.
+```{bash}
+cd [디렉토리 이름]
+```
+:::
+
+::: {.fragment .fade-in-then-semi-out}
+3. Terminal에 다음과 같이 입력한다.
+```{bash}
+streamlit run [파일명].py
+```
+:::
+
+## streamlit 실습 1
+
+<br/>
+
+- 실습 폴더의 app.py를 실행시켜본다. 
+
+<br/>
+
+- 백문이불여일견이라고 했던가요? 한번 다뤄봅시다!
+
+## streamlit 주요 함수 : 출력 1
+
+<br/>
+
+**텍스트 출력**
+
+```{python}
+
+## 타이틀
+st.title("title")
+
+## Header(큰 제목)
+st.header("큰 제목")
+
+## subheader(작은 제목)
+st.subheader("작은 제목")
+
+## 텍스트
+st.text("hello SeSAC")
+
+#Mark Down
+st.markdown('마크다운')
+
+#caption
+st.caption('캡션')
+
+```
+
+
+## streamlit 주요 함수 : 출력 2
+
+<br/>
+
+**데이터 출력하기**
+
+```{python}
+
+#pandas dataframe
+st.dataframe(pd.dataframe)
+
+#Json 파일
+st.json({'name':'Jaeseong', 'gender' : 'male'})
+
+# 그 외 대부분 st.write로 출력 가능
+st.write('df, error, function, keras..etc')
+
+```
+
+
+## streamlit 주요 함수 : 출력 3
+
+<br/>
+
+**이런 것도 올릴 수 있어요!!**
+
+``` {.py code-line-numbers="1|3|5"}
+st.image('.png' or '.jpg')
+
+st.audio(data)
+
+st.video(data)
+```
+
+
+## streamlit 주요 함수 : code 출력
+
+<br/>
+
+**코드도 올릴 수 있습니다!**
+
+``` {.py code-line-numbers="1|3-6"}
+st.code('while True: print('Dorumamu!'))
+
+#코드 블럭으로 출력하고 싶을 떈?
+with st.echo():
+  while True:
+    print('Dorumanu!')
+```
+
+
+## streamlit 주요 함수 : graph 출력
+
+<br/>
+
+**다음과 같이 그래프를 출력할 수 있습니다**
+
+```{python}
+#streamlit 자체 그래프
+st.line_chart(data)
+st.area_chart(data)
+st.bar_chart(data)
+
+#시각화 library 내에 있는 그래프
+##matplotlib, plot.ly, altair, vega_ilte, bokeh, deck_gl, pydeck, graph_viz
+st.pyplot(fig)
+st.plotly_chart(data)
+st.altair_chart(data)
+st.vega_lite_chart(data)
+st.bokeh_chart(data)
+st.deck_gl_chart(data)
+st.pydeck_chart(data)
+st.graphviz_chart(data)
+```
+
+
+## streamlit 주요 함수 : message 출력
+
+<br/>
+
+**사용자에게 메시지를 내보낼 수도 있습니다**
+```{python}
+st.error('Error message') #에러 메세지
+
+st.warning('Warning message') # 경고 메세지
+
+st.info('Info message') # 정보 메세지
+
+st.success('Success message') #성공 메세지
+
+st.exception() #예외처리, 강제로 에러를 일으키게 만들 수도 있음
+```
+
+## streamlit 주요 함수 : Widget
+
+<br/>
+
+**streamlit은 Interactive한 Widget을 지원합니다!**
+```{python}
+st.button('click') #버튼
+
+st.checkbox('you wanna check?') #체크박스
+
+st.selectbox('1개만 고르시오', [1,2,3,4,5]) #드랍다운
+st.multiselect('1개 이상 고르시오', [1,2,3,4,5]) #다중 드랍다운
+
+st.download_button('다운받기', data) #다운로드 버튼
+st.file_uploader('업로드하기') #업로드 버튼
+
+st.text_input('텍스트를 입력하시오') #글자 입력 -> str
+st.number_input('숫자를 입력하시오') #숫자 입력 -> float
+
+st.date_input('날짜를 입력하시오')# 날짜 입력 --> import datetime 필수
+st.time_input('시간을 입력하시오')# 시간 입력 --> import datetime 필수
+```
+
+## streamlit 기초를 마치며
+
+<br/>
+
+::: incremental
+- 오늘은 streamlit의 기초 of 기초를 살펴봤습니다.
+- 금일 클리닉에서 설명한 내용 외에도 다양한 기능들이 있습니다.
+- 제일 중요한 것은 직접 사용해보면서 익히는 것입니다. 지금까지 본 과정을 들으면서 짰던 코드를 한번 streamlit을 통해 구현해봅시다.
+- 내일은 streamlit의 외장 기능인 component와 github에 업로드하는 방법에 대해 배울 예정입니다.
+:::
