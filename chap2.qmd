@@ -82,6 +82,18 @@ streamlit-pandas-profiling 라이브러리를 활용한 EDA 자동화 대시보�
 5. 끝
 :::
 
+## Streamlit 연동할 때 유의 사항
+
+<br/>
+
+**github repo에는 반드시 다음과 같은 파일이 포함돼 있어야 한다.**
+
+::: incremental
+1. .py 파일(이름은 app.py로 설정 권장)
+2. requirements.txt
+:::
+
+
 ## Streamlit 실습
 
 <br/>
