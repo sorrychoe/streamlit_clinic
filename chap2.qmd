@@ -1,0 +1,97 @@
+---
+title: "Streamlit 2"
+format: revealjs
+editor: visual
+
+execute:
+  echo: True
+  eval : False
+---
+
+## LM 클리닉 내용
+
+<br/>
+
+::: incremental
+-   Streamlit Components의 이해
+-   Streamlit Components 종류
+-   Streamlit Components 사용 예시
+-   Streamlit & Github
+-   Streamlit 연동 방법
+-   Streamlit 실습
+:::
+
+
+## Streamlit Components란?
+
+<br/>
+
+::: {.fragment .fade-in}
+- Streamlit 상에서 확장된 기능을 사용하게 만들어주는 Third-Party Module
+- Third-Party Module : 내장되거나 자사에서 만든 것이 아닌 외부에서 제작한 모듈
+:::
+
+<br/>
+
+::: {.fragment .fade-in}
+- 즉, Streamlit의 Extension!!
+:::
+
+## Streamlit Components의 종류
+
+<br/>
+
+::: {.fragment .fade-in-then-semi-out}
+다음 링크를 타고 들어가면 확인할 수 있다.
+:::
+
+<br/>
+
+::: {.fragment .fade-in}
+- https://streamlit.io/components
+:::
+
+
+## Streamlit Components 사용 예제
+
+<br/>
+
+streamlit-pandas-profiling 라이브러리를 활용한 EDA 자동화 대시보드를 활용해보자
+
+<br/>
+
+지금부터 화면 집중!!
+
+
+## Streamlit & Github
+
+- Streamlit을 Github과 연동하면 간단하게 웹 페이지를 구축할 수 있다.
+
+::: {.fragment .fade-up}
+- 물론, heroku나 다른 웹 프레임워크로도 웹페이지 구축이 가능하다.
+- 하지만 Github이 가장 연동이 빠르고 간편하여, 대부분 github 연동을 선호하는 편이다.
+::: 
+
+## Streamlit 연동 방법
+
+::: incremental
+1. streamlit.io에 들어가서 회원가입을 한다(처음 한번만).
+2. github에 repository를 형성한다.
+3. 본인이 올리고 싶은 Streamlit 파일을 해당 repo에 commit & push한다.
+4. streamlit.io 홈페이지에 로그인해서 우측 상단의 New app을 누르고 연동한다.
+5. 끝
+:::
+
+## Streamlit 실습
+
+<br/>
+
+::: {.fragment .fade-in-then-semi-out}
+**실습 내용**
+:::
+
+::: incremental
+-   2차 방정식 계산기를 Streamlit으로 구현해봅시다.
+-   streamlit_tutoring 폴더에 있는 exp_qe.py 파일에 base-line code가 들어 있습니다.
+-   구현한 streamlit 파일을 github에 연동하여 웹페이지로 만들면 실습 종료!
+:::
